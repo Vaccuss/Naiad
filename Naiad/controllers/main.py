@@ -17,7 +17,7 @@ def home():
 @main.route("/login", methods=["GET", "POST"])
 def login():
     form = LoginForm()
-
+    check = False
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).one()
         login_user(user)
