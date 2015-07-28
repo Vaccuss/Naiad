@@ -1,10 +1,10 @@
 from flask import Blueprint, render_template, flash, request, redirect, url_for
 from flask.ext.login import login_user, logout_user, login_required
 from Naiad.extensions import cache
-import pprint
 from Naiad.forms import LoginForm, SignupForm
 from Naiad.models import User
 from Naiad.models import db
+import json
 
 main = Blueprint('main', __name__)
 
@@ -62,3 +62,20 @@ def logout():
 @login_required
 def restricted():
     return "You can only see this if you are logged in!", 200
+
+
+@main.route("/weather_data", methods="POST")
+def weather_data():
+    city = request.data
+    with open('./weatherData/collection.json', 'r') as data_file:
+        data = json.loads(data_file)
+    useful_data = {"max_0": data[city]['max_0'], "max_1": data[city]['max_1'], "max_2": data[city]['max_2'],"max_3": data[city]['max_3'],
+                   "max_4": data[city]['max_4'], "max_5": data[city]['max_5'], "max_6": data[city]['max_6'], "max_7": data[city]['max_7'],
+
+                   "min_0": data[city]['min_0'], "min_0": data[city]['min_0'],"min_0": data[city]['min_0'],"min_0": data[city]['min_0'],
+                   "min_0": data[city]['min_0'],"min_0": data[city]['min_0'],"min_0": data[city]['min_0']}
+
+
+
+    send_value = data[city]
+
