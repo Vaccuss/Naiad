@@ -1,8 +1,10 @@
 from flask_wtf import Form
-from wtforms import PasswordField, StringField
+from wtforms import PasswordField, StringField, BooleanField
 from wtforms import validators
-
+from wtforms.validators import DataRequired
+from wtforms.validators import Length, Email
 from Naiad.models import User
+
 
 class LoginForm(Form):
     username = StringField(u'Username', validators=[validators.required()])
@@ -27,3 +29,17 @@ class LoginForm(Form):
             return False
 
         return True
+
+
+class SignupForm(Form):
+    email = StringField('Email address',
+                        validators=[DataRequired('Please provide a valid email address'),
+                                    Length(min=6, message=(u'Email address too short')),
+                                    Email(message=(u'That\'s not a valid email address.'))])
+    password = PasswordField('Pick a secure password',
+                             validators=[DataRequired(),
+                                         Length(min=6,
+                                                message=(u'Please give a longer password'))])
+    username = StringField('Choose your username', validators=[DataRequired()])
+    agree = BooleanField('I agree all your Terms of Services',
+                         validators=[DataRequired(u'You must accept our Terms of Service')])

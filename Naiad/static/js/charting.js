@@ -6,7 +6,7 @@ var randomScalingFactor = function () {
     return Math.round(Math.random() * 100)
 };
 var lineChartData = {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    labels: ["January", "February", "March", "April", "May", "June", "July", "April", "May", "June", "July", "April", "May", "June", "July" ],
     datasets: [
         {
             label: "My First dataset",
@@ -16,18 +16,8 @@ var lineChartData = {
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(220,220,220,1)",
-            data: [50, randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor()]
+            data: [50, randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(),23,45,63,83,23,56,33,78,31,]
         },
-        {
-            label: "My Second dataset",
-            fillColor: "rgba(151,187,205,0.2)",
-            strokeColor: "rgba(151,187,205,1)",
-            pointColor: "rgba(151,187,205,1)",
-            pointStrokeColor: "#fff",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(151,187,205,1)",
-            data: [50, randomScalingFactor(), randomScalingFactor(), 1, 40]
-        }
     ]
 
 }

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Flask Login Example{% endblock %}
+
+{% block body %}
+    <h1 class="text-center">Sign up</h1>
+     <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <form action="{{ url_for(".signup") }}" class="form" method="POST">
+            {{ form.hidden_tag() }}
+            <div class="form-group {% if form.email.errors %} has-error {% endif %} ">
+                <label for="email">Email address</label>
+                <input class="form-control" id="email" name="email" type="text"/>
+                <p class="help-block"></p>
+            </div>
+
+            <div class="form-group {% if form.password.errors %} has-error {% endif %} ">
+                <label for="password">Pick a secure password</label>
+                <input class="form-control" id="password" name="password" type="password"/>
+
+                <p class="help-block">
+                    This field is required.
+            </div>
+
+            <div class="form-group {% if form.username.errors %} has-error {% endif %} ">
+                <label for="username">Choose your username</label>
+                <input class="form-control" id="username" name="username" type="text"/>
+                <p class="help-block">This field is required.</p>
+
+            </div>
+            <div class="form-group  {% if form.agree.errors %} has-error {% endif %} ">
+                <label class="checkbox">
+                    <input id="agree" name="agree" type="checkbox" value="y"/> <label for="agree">I agree all
+                    your Terms of Services</label></label>
+            </div>
+            <button class="btn btn-success" type="submit">Sign Up</button>
+        </form>
+    </div>
+     <div class="col-md-4"></div>
+{% endblock %}

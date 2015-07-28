@@ -9,9 +9,10 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer(), primary_key=True)
     username = db.Column(db.String())
     password = db.Column(db.String())
-
-    def __init__(self, username, password):
+    email = db.Column(db.String())
+    def __init__(self, username, password, email):
         self.username = username
+        self.email = email
         self.set_password(password)
 
     def set_password(self, password):
@@ -40,3 +41,6 @@ class User(db.Model, UserMixin):
 
     def __repr__(self):
         return '<User %r>' % self.username
+
+class BoMData(db.Model):
+    id = db.Column(db.Integer(), primary_key=True)

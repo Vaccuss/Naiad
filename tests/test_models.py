@@ -5,7 +5,7 @@ import pytest
 
 from Naiad.models import db, User
 
-create_user = False
+create_user = True
 
 
 @pytest.mark.usefixtures("testapp")

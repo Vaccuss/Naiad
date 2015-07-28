@@ -1,4 +1,4 @@
-{%extends "base.html" %}
+{% extends "base.html" %}
 
 {%block title %}Flask Login Example{% endblock %}
 
@@ -29,9 +29,9 @@
                     {% endif %}
                     {{ form.password(class_="form-control") }}
                 </div>
-
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
+            <a href="/signup" class="btn btn-primary">Sign up</a>
         </div>
         <div class="col-md-4"></div>
     </div>
