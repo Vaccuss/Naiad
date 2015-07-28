@@ -12,7 +12,7 @@ var withData = function (callback) {
 };
 
 withData(function (data, textStatus) {
-    var values = JSON.parse(data.responseText);
+    var values = JSON.parse(data.responseJSON);
     return {
         labels: ["Day 0", "Day 1", "Day 2", "Day 3", "Day 4", "Day 5", "Day 6", "Day 7"],
         datasets: [
