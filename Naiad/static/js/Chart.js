@@ -412,7 +412,7 @@
 				stepValue = Math.pow(10, rangeOrderOfMagnitude),
 				numberOfSteps = Math.round(graphRange / stepValue);
 
-			//If we have more space on the graph we'll use it to give more definition to the data
+			//If we have more space on the graph we'll use it to give more definition to the ret_data
 			while((numberOfSteps > maxSteps || (numberOfSteps * 2) < maxSteps) && !skipFitting) {
 				if(numberOfSteps > maxSteps){
 					stepValue *=2;
@@ -482,7 +482,7 @@
 				new Function("obj",
 					"var p=[],print=function(){p.push.apply(p,arguments);};" +
 
-					// Introduce the data as local variables using with(){}
+					// Introduce the ret_data as local variables using with(){}
 					"with(obj){p.push('" +
 
 					// Convert the template into pure JavaScript
@@ -938,7 +938,7 @@
 				this.options.customTooltips(false);
 			}
 			if (ChartElements.length > 0){
-				// If we have multiple datasets, show a MultiTooltip for all of the data points at that index
+				// If we have multiple datasets, show a MultiTooltip for all of the ret_data points at that index
 				if (this.datasets && this.datasets.length > 1) {
 					var dataArray,
 						dataIndex;
@@ -1580,7 +1580,7 @@
 
 		},
 		// Needs to be overidden in each Chart type
-		// Otherwise we need to pass all the data into the scale class
+		// Otherwise we need to pass all the ret_data into the scale class
 		calculateYRange: noop,
 		drawingArea: function(){
 			return this.startPoint - this.endPoint;
@@ -2056,7 +2056,7 @@
 		//Number - Spacing between each of the X value sets
 		barValueSpacing : 5,
 
-		//Number - Spacing between data sets within X values
+		//Number - Spacing between ret_data sets within X values
 		barDatasetSpacing : 1,
 
 		//String - A legend template
@@ -2132,7 +2132,7 @@
 				this.datasets.push(datasetObject);
 
 				helpers.each(dataset.data,function(dataPoint,index){
-					//Add a new point for each piece of data, passing any required data to draw.
+					//Add a new point for each piece of ret_data, passing any required ret_data to draw.
 					datasetObject.bars.push(new this.BarClass({
 						value : dataPoint,
 						label : data.labels[index],
@@ -2258,7 +2258,7 @@
 		addData : function(valuesArray,label){
 			//Map the values array for each of the datasets
 			helpers.each(valuesArray,function(value,datasetIndex){
-				//Add a new point for each piece of data, passing any required data to draw.
+				//Add a new point for each piece of ret_data, passing any required ret_data to draw.
 				this.datasets[datasetIndex].bars.push(new this.BarClass({
 					value : value,
 					label : label,
@@ -2613,7 +2613,7 @@
 
 
 				helpers.each(dataset.data,function(dataPoint,index){
-					//Add a new point for each piece of data, passing any required data to draw.
+					//Add a new point for each piece of ret_data, passing any required ret_data to draw.
 					datasetObject.points.push(new this.PointClass({
 						value : dataPoint,
 						label : data.labels[index],
@@ -2731,7 +2731,7 @@
 			//Map the values array for each of the datasets
 
 			helpers.each(valuesArray,function(value,datasetIndex){
-				//Add a new point for each piece of data, passing any required data to draw.
+				//Add a new point for each piece of ret_data, passing any required ret_data to draw.
 				this.datasets[datasetIndex].points.push(new this.PointClass({
 					value : value,
 					label : label,
@@ -3245,7 +3245,7 @@
 				this.datasets.push(datasetObject);
 
 				helpers.each(dataset.data,function(dataPoint,index){
-					//Add a new point for each piece of data, passing any required data to draw.
+					//Add a new point for each piece of ret_data, passing any required ret_data to draw.
 					var pointPosition;
 					if (!this.scale.animation){
 						pointPosition = this.scale.getPointPosition(index, this.scale.calculateCenterOffset(dataPoint));

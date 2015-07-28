@@ -23,7 +23,7 @@ def main():
     weatherOutput = cleanRawWeather(rawWeather)
     uvOutput = processUVData(rawUVData)
     for city in uvOutput:  # iterate over all the cities in uv output
-        if city[0] in weatherOutput:  # Check is UV city exist in weather data.
+        if city[0] in weatherOutput:  # Check is UV city exist in weather ret_data.
             info = weatherOutput.get(city[0])
             reading = city[1]
             info['UVReading'] = reading
@@ -101,7 +101,7 @@ def filewriter(data):
 
 
 def saveFile(data):
-    with open('./weatherData/collection.json', 'w') as outfile:
+    with open('./weatherData/collection.json', 'wb') as outfile:
         json.dump(data, outfile, sort_keys=True, indent=4)
 
 main()
